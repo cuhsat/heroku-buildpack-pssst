@@ -5,7 +5,7 @@ set -o nounset
 URL="https://nodejs.org/dist/v4.2.3/node-v4.2.3-linux-x64.tar.gz"
 TMP=node
 
-mkdir -P $TMP
+mkdir -p $TMP
 curl $URL -s -o - | tar xzf - -C $TMP
 chmod +x $TMP/bin/*
 
