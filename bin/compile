@@ -7,9 +7,9 @@ TMP=node
 
 mkdir -p $TMP
 curl $URL -s -o - | tar xzf - -C $TMP
-chmod +x $TMP/bin/*
+chmod +x $TMP/node-v4.2.3-linux-x64/bin/*
 
-PATH=$TMP/bin:$PATH
+PATH=$TMP/node-v4.2.3-linux-x64/bin:$PATH
 
 cd $1/src/server/
 npm install
