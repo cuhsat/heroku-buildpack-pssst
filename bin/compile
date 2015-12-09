@@ -6,8 +6,8 @@ indent() {
   sed -u 's/^/       /'
 }
 
-$BUILD_DIR=$1
-$CACHE_DIR=$2
+BUILD_DIR=$1
+CACHE_DIR=$2
 
 VER="v4.2.3"
 URL="https://nodejs.org/dist/$VER/node-$VER-linux-x64.tar.gz"
