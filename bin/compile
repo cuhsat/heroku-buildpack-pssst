@@ -7,11 +7,15 @@ CACHE_DIR=$2
 
 VER="v4.2.3"
 URL="https://nodejs.org/dist/$VER/node-$VER-linux-x64.tar.gz"
+TAR="$CACHE_DIR/node-$VER-linux-x64.tar.gz"
+BIN="$BUILD_DIR/vendor/node-$VER-linux-x64/bin"
 
-curl $URL -s -o - | tar xzf -
+curl $URL -s -o $TAR
 
-mkdir .profile.d/
-echo "PATH=$PATH:$HOME/node-$VER-linux-x64/bin" > .profile.d/path.sh
+mkdir -p $BUILD_DIR/vendor
+tar xzf $TAR -C $BUILD_DIR/vendor/
 
-cd src/server/
-./../../node-$VER-linux-x64/npm install
+export PATH=$BIN:$PATH
+
+cd $BUILD_DIR/src/server/
+npm install
