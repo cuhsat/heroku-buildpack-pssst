@@ -12,4 +12,4 @@ chmod +x $TMP/node-v4.2.3-linux-x64/bin/*
 PATH=$TMP/node-v4.2.3-linux-x64/bin:$PATH
 
 cd $1/src/server/
-npm install
+$TMP/node-v4.2.3-linux-x64/bin/npm install
