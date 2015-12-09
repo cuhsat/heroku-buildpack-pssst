@@ -10,6 +10,10 @@ URL="https://nodejs.org/dist/$VER/node-$VER-linux-x64.tar.gz"
 TAR="$CACHE_DIR/node-$VER-linux-x64.tar.gz"
 BIN="$BUILD_DIR/vendor/node-$VER-linux-x64/bin"
 
+echo "$1"
+echo "$BUILD_DIR"
+echo "$CACHE_DIR"
+
 echo "Downloading Node.js" | indent
 curl $URL -s -o $TAR
 
