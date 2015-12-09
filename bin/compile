@@ -10,12 +10,8 @@ URL="https://nodejs.org/dist/$VER/node-$VER-linux-x64.tar.gz"
 
 curl $URL -s -o - | tar xzf -
 
-ls -lha
-
-export PATH=$PATH:$BUILD_DIR/node-$VER-linux-x64/bin
-
 mkdir .profile.d/
 echo "PATH=$PATH:$HOME/node-$VER-linux-x64/bin" > .profile.d/path.sh
 
-cd $1/src/server/
-npm install
+cd src/server/
+./../../node-$VER-linux-x64/npm install
