@@ -16,6 +16,8 @@ mkdir -p $BUILD_DIR/vendor
 tar xzf $TAR -C $BUILD_DIR/vendor/
 
 export PATH=$BIN:$PATH
+mkdir .profile.d/
+echo "PATH=$PATH:$HOME/node-$VER-linux-x64/bin" > .profile.d/path.sh
 
 cd $BUILD_DIR/src/server/
 npm install
