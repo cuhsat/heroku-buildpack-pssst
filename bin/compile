@@ -10,6 +10,8 @@ URL="https://nodejs.org/dist/$VER/node-$VER-linux-x64.tar.gz"
 TAR="$CACHE_DIR/node-$VER-linux-x64.tar.gz"
 BIN="$BUILD_DIR/node-$VER-linux-x64/bin"
 
+echo $(pwd)
+
 curl $URL -s -o $TAR
 tar xzf $TAR -C $BUILD_DIR/
 
