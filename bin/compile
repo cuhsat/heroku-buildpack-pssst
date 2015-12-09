@@ -2,30 +2,20 @@
 set -o errexit
 set -o nounset
 
-indent() {
-  sed -u 's/^/       /'
-}
-
 BUILD_DIR=$1
 CACHE_DIR=$2
 
 VER="v4.2.3"
 URL="https://nodejs.org/dist/$VER/node-$VER-linux-x64.tar.gz"
 TAR="$CACHE_DIR/node-$VER-linux-x64.tar.gz"
-BIN="$BUILD_DIR/vendor/node-$VER-linux-x64/bin"
+BIN="$BUILD_DIR/node-$VER-linux-x64/bin"
 
-echo $BUILD_DIR
-echo $CACHE_DIR
-
-echo "Downloading Node.js" | indent
 curl $URL -s -o $TAR
-
-echo "Installing Node.js" | indent
-mkdir -p $BUILD_DIR/vendor
-tar xzf $TAR -C $BUILD_DIR/vendor/
-rm $TAR
+tar xzf $TAR -C $BUILD_DIR/
 
 export PATH=$BIN:$PATH
+
+echo "PATH=$PATH:$HOME/node-$VER-linux-x64/bin" > $BUILD_DIR/.profile.d/path.sh
 
 cd $1/src/server/
 npm install
