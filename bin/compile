@@ -8,7 +8,7 @@ CACHE_DIR=$2
 VER="v4.2.3"
 URL="https://nodejs.org/dist/$VER/node-$VER-linux-x64.tar.gz"
 
-curl $URL -s -O | tar xzf -
+curl $URL -s -O | tar xz
 
 export PATH=$PATH:$BUILD_DIR/node-$VER-linux-x64/bin
 
