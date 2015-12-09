@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 cat << EOF
 ---
+addons:
+  - heroku-redis:hobby-dev
 default_process_types:
   web: node src/server/index.js
 EOF
