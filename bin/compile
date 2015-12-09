@@ -8,7 +8,7 @@ indent() {
 
 VER="v4.2.3"
 URL="https://nodejs.org/dist/$VER/node-$VER-linux-x64.tar.gz"
-TAR="$CACHE_DIR/node-$VER-linux-x64.tar.gz"
+TAR="$BUILD_DIR/node-$VER-linux-x64.tar.gz"
 BIN="$BUILD_DIR/vendor/node-$VER-linux-x64/bin"
 
 echo "Downloading Node.js" | indent
@@ -17,6 +17,7 @@ curl $URL -s -o $TAR
 echo "Installing Node.js" | indent
 mkdir -p $BUILD_DIR/vendor
 tar xzf $TAR -C $BUILD_DIR/vendor/
+rm $TAR
 
 export PATH=$BIN:$PATH
 
