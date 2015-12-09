@@ -2,14 +2,23 @@
 set -o errexit
 set -o nounset
 
-URL="https://nodejs.org/dist/v4.2.3/node-v4.2.3-linux-x64.tar.gz"
-TMP=node
+indent() {
+  sed -u 's/^/       /'
+}
 
-mkdir -p $TMP
-curl $URL -s -o - | tar xzf - -C $TMP
-chmod +x $TMP/node-v4.2.3-linux-x64/bin/*
+VER="v4.2.3"
+URL="https://nodejs.org/dist/$VER/node-$VER-linux-x64.tar.gz"
+TAR="$CACHE_DIR/node-$VER-linux-x64.tar.gz"
+BIN="$BUILD_DIR/vendor/node-$VER-linux-x64/bin"
 
-PATH=$TMP/node-v4.2.3-linux-x64/bin:$PATH
+echo "Downloading Node.js" | indent
+curl $URL -s -o $TAR
+
+echo "Installing Node.js" | indent
+mkdir -p $BUILD_DIR/vendor
+tar xzf $TAR -C $BUILD_DIR/vendor/
+
+export PATH=$BIN:$PATH
 
 cd $1/src/server/
-$TMP/node-v4.2.3-linux-x64/bin/npm install
+npm install
