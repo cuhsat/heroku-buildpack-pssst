@@ -1,4 +1,4 @@
-# Heroku Buildpack for Pssst
+# Heroku Buildpack: Pssst
 This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks)
 for the [Pssst](https://github.com/cuhsat/pssst) server.
 
