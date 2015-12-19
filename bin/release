@@ -4,5 +4,5 @@ cat << EOF
 addons:
   - heroku-redis:hobby-dev
 default_process_types:
-  web: node src/server/server.js
+  web: cd src/server && npm start
 EOF
