@@ -2,6 +2,10 @@
 set -o errexit
 set -o nounset
 
+indent() {
+  sed -u 's/^/       /'
+}
+
 BUILD_DIR=$1
 CACHE_DIR=$2
 NODE_VER="v4.2.3"
@@ -21,4 +25,4 @@ echo "PATH=$PATH:$HOME/vendor/node-$NODE_VER-linux-x64/bin" > $PATH_SH
 
 # Install packages
 cd $BUILD_DIR/src/server/
-npm install
+npm install | indent
