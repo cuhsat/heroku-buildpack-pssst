@@ -3,6 +3,9 @@ cat << EOF
 ---
 addons:
   - heroku-redis:hobby-dev
+config_vars:
+  PSSST_KEY: ""
+  PSSST_DEBUG: 0
 default_process_types:
   web: cd src/server && npm start
 EOF
