@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+echo "Test"
 echo $PSSST_KEY
 
 cat << EOF
