@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+echo $PSSST_KEY
+
 cat << EOF
 ---
 addons:
