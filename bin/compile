@@ -20,11 +20,11 @@ mkdir -p $BUILD_DIR/vendor
 curl $URL -s -o - | tar xzf - -C $BUILD_DIR/vendor/
 
 # Export path
+echo "-----> Please BE SURE to set the 'PSSST_KEY' config var!"
 export PATH=$PATH:"$BUILD_DIR/vendor/node-$NODE_VER-linux-x64/bin"
 echo "PATH=$PATH:$HOME/vendor/node-$NODE_VER-linux-x64/bin" > $PATH_SH
 
 # Install packages
+echo "-----> Installing npm packages"
 cd $BUILD_DIR/src/server/
 npm install | indent
-
-echo "-----> Please be sure to set the 'PSSST_KEY' config var!"
