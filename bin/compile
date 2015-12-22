@@ -12,12 +12,14 @@ NODE_VER="4.2.3"
 PATH_SH=$BUILD_DIR/.profile.d/path.sh
 URL="https://nodejs.org/dist/v$NODE_VER/node-v$NODE_VER-linux-x64.tar.gz"
 
+echo "! Please be sure to set the PSSST_KEY config var" | indent
+
 # Create directories
 mkdir -p $BUILD_DIR/.profile.d/
 mkdir -p $BUILD_DIR/vendor
 
 # Download binary
-echo "-----> Installing nodejs@$NODE_VER"
+echo "-----> Installing node@$NODE_VER"
 curl $URL -s -o - | tar xzf - -C $BUILD_DIR/vendor/
 
 # Export path
@@ -28,5 +30,3 @@ echo "PATH=$PATH:$HOME/vendor/node-v$NODE_VER-linux-x64/bin" > $PATH_SH
 echo "-----> Installing npm packages"
 cd $BUILD_DIR/src/server/
 npm install | indent
-
-echo "-----> Please BE SURE to set the PSSST_KEY config var"
