@@ -8,23 +8,25 @@ indent() {
 
 BUILD_DIR=$1
 CACHE_DIR=$2
-NODE_VER="v4.2.3"
+NODE_VER="4.2.3"
 PATH_SH=$BUILD_DIR/.profile.d/path.sh
-URL="https://nodejs.org/dist/$NODE_VER/node-$NODE_VER-linux-x64.tar.gz"
+URL="https://nodejs.org/dist/v$NODE_VER/node-v$NODE_VER-linux-x64.tar.gz"
 
 # Create directories
 mkdir -p $BUILD_DIR/.profile.d/
 mkdir -p $BUILD_DIR/vendor
 
 # Download binary
+echo "-----> Installing nodejs@$NODE_VER"
 curl $URL -s -o - | tar xzf - -C $BUILD_DIR/vendor/
 
 # Export path
-echo "-----> Please BE SURE to set the 'PSSST_KEY' config var!"
-export PATH=$PATH:"$BUILD_DIR/vendor/node-$NODE_VER-linux-x64/bin"
-echo "PATH=$PATH:$HOME/vendor/node-$NODE_VER-linux-x64/bin" > $PATH_SH
+export PATH=$PATH:"$BUILD_DIR/vendor/node-v$NODE_VER-linux-x64/bin"
+echo "PATH=$PATH:$HOME/vendor/node-v$NODE_VER-linux-x64/bin" > $PATH_SH
 
 # Install packages
 echo "-----> Installing npm packages"
 cd $BUILD_DIR/src/server/
 npm install | indent
+
+echo "-----> Please BE SURE to set the PSSST_KEY config var"
