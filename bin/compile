@@ -26,3 +26,5 @@ echo "PATH=$PATH:$HOME/vendor/node-$NODE_VER-linux-x64/bin" > $PATH_SH
 # Install packages
 cd $BUILD_DIR/src/server/
 npm install | indent
+
+echo "-----> Please be sure to set the 'PSSST_KEY' config var!"
