@@ -14,17 +14,17 @@ PATH_SH=$BUILD_DIR/.profile.d/path.sh
 KEY_SH=$BUILD_DIR/.profile.d/key.sh
 URL="https://nodejs.org/dist/v$NODE_VER/node-v$NODE_VER-linux-x64.tar.gz"
 
-# Set server key
-if [[ ! -s $ENV_DIR/PSSST_KEY ]]; then
-    echo "-----> Generating server key"
-    PSSST_KEY=$(openssl genrsa 2048 | base64)
-    export PSSST_KEY=$PSSST_KEY
-    echo "PSSST_KEY=$PSSST_KEY" > $KEY_SH
-fi;
-
 # Create directories
 mkdir -p $BUILD_DIR/.profile.d/
 mkdir -p $BUILD_DIR/vendor
+
+# Set server key
+if [[ ! -s $ENV_DIR/PSSST_KEY ]]; then
+    echo "-----> Generating server key"
+    PSSST_KEY=$(openssl genrsa 2048 2>/dev/null | base64)
+    export PSSST_KEY=$PSSST_KEY
+    echo "PSSST_KEY=$PSSST_KEY" > $KEY_SH
+fi;
 
 # Download binary
 echo "-----> Installing node@$NODE_VER"
