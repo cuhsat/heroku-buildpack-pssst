@@ -23,6 +23,7 @@ if [[ ! -s $ENV_DIR/PSSST_KEY ]]; then
     echo "-----> Generating key"
     PSSST_KEY=$(openssl genrsa 2048 2>/dev/null | base64)
     echo "export PSSST_KEY=\"$PSSST_KEY\"" > $PSSST_SH
+    echo "$PSSST_KEY" > $ENV_DIR/PSSST_KEY
 fi;
 
 # Download binary
