@@ -19,7 +19,9 @@ mkdir -p $BUILD_DIR/vendor
 
 # Show warning
 if [[ ! -s $ENV_DIR/PSSST_KEY ]]; then
-  echo "! BE SURE TO SET THE CONFIG VAR 'PSSST_KEY'" | indent
+  echo "!" | indent
+  echo "!  Be sure to set the 'PSSST_KEY' config var and restart the dyno" | indent
+  echo "!" | indent
 fi;
 
 # Download binary
