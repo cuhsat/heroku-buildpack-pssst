@@ -14,6 +14,9 @@ URL="https://nodejs.org/dist/v$NODE_VER/node-v$NODE_VER-linux-x64.tar.gz"
 
 echo "! Be sure to set the PSSST_KEY config var" | indent
 
+env
+echo $ENV
+
 # Create directories
 mkdir -p $BUILD_DIR/.profile.d/
 mkdir -p $BUILD_DIR/vendor
