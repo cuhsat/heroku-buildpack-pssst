@@ -15,7 +15,7 @@ KEY_SH=$BUILD_DIR/.profile.d/key.sh
 URL="https://nodejs.org/dist/v$NODE_VER/node-v$NODE_VER-linux-x64.tar.gz"
 
 # Set server key
-if [[ ! -s $FILE ]]; then
+if [[ ! -s $ENV_DIR/PSSST_KEY ]]; then
     echo "-----> Generating server key"
     PSSST_KEY=$(openssl genrsa 2048 | base64)
     export PSSST_KEY=$PSSST_KEY
