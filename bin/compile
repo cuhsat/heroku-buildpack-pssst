@@ -18,12 +18,12 @@ URL="https://nodejs.org/dist/v$NODE_VER/node-v$NODE_VER-linux-x64.tar.gz"
 mkdir -p $BUILD_DIR/.profile.d/
 mkdir -p $BUILD_DIR/vendor
 
-# Generate server key
+# Show warning
 if [[ ! -s $ENV_DIR/PSSST_KEY ]]; then
-    echo "-----> Generating key ..."
     PSSST_KEY=$(openssl genrsa 2048 2>/dev/null | base64)
+    echo "!!! Be sure to set the PSSST_KEY config var:" | indent
+    echo $PSSST_KEY | indent
     echo "export PSSST_KEY=\"$PSSST_KEY\"" > $PSSST_SH
-    echo "$PSSST_KEY" > $ENV_DIR/PSSST_KEY
 fi;
 
 # Download binary
