@@ -32,5 +32,5 @@ echo "PATH=$PATH:$HOME/vendor/node-v$NODE_VER-linux-x64/bin" > $PATH_SH
 
 # Install packages
 echo "-----> Installing npm packages"
-cd $BUILD_DIR/src/server/
+cd $BUILD_DIR/
 npm install | indent
